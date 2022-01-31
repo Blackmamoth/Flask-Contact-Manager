@@ -1,0 +1,33 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+{% if contacts %}
+  <h1>Your Contacts</h1>
+  <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Sr.no</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contact in contacts %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{contact.name}}</td>
+      <td>{{contact.email}}</td>
+      <td>{{contact.phone}}</td>
+      <td><span><a href="{{url_for('update_contact', contact_id=contact.id)}}" class="btn btn-primary">Edit</a> <a href="{{url_for('delete_contact', contact_id=contact.id)}}" class="btn btn-danger">Delete</a></span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <h1>Hello {{current_user.username}}</h1>
+  <h4 class="mt-5">There are currently no contacts in your account, create new contacts an they will show up here</h4>
+{% endif %}
+{% endblock content %}
