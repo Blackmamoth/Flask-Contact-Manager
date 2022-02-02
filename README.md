@@ -14,26 +14,26 @@ if on mac/linux:
 
 `$ python3 -m venv venv_name`\
 `$ source venv_name/bin/activate`\
-`$ pip3 install -r requirements.txt`
+`(venv_name) $ pip3 install -r requirements.txt`
 
 if on windows:
 
 `PS dir_name:\> python -m venv venv_name`\
-`PS dir_name:\> .\venv\Scripts\activate`\
-`PS dir_name:\> pip install -r requirements.txt`
+`PS dir_name:\> .\venv_name\Scripts\activate`\
+`(venv_name) PS dir_name:\> pip install -r requirements.txt`
 
 2. After step 1,navigate to the root directory of the project(where **app.py** lies) to create an environment variable through command-line by typing
 
 if on mac/linux:
 
-`$ export FLASK_APP=app.py`
+`(venv_name) $ export FLASK_APP=app.py`
 
 if on windows:
 
-`PS dir_name:\> set FLASK_APP=app.py`
+`(venv_name) PS dir_name:\> set FLASK_APP=app.py`
 
 3. After completing the above both steps, when in the root directory of the project run this command to run the website on your localhost:
 
-`$ flask run`
+`(venv_name) $ flask run`
 
 4. And then simply Navigate to **http://127.0.0.1:5000/** or **http://localhost:5000/** on your browser.
