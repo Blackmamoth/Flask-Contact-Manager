@@ -5,7 +5,7 @@ from contact_manager.models import User, Contact
 from flask_login import current_user
 
 class UserRegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=5, max=30)])
+    username = StringField('Username', validators=[DataRequired(), Length(min=5, max=40)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=16)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
@@ -29,7 +29,7 @@ class UserLoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class ContactCreationForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(), Length(min=5, max=10)])
+    name = StringField('Name', validators=[DataRequired(), Length(min=5, max=40)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = IntegerField('Phone', validators=[DataRequired()])
     submit = SubmitField('Create Contact')
@@ -57,7 +57,7 @@ class ContactCreationForm(FlaskForm):
                 raise ValidationError("You already have a contact with this phone number, choose a different phone for this contact")
 
 class UpdateContactForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(), Length(min=5, max=10)])
+    name = StringField('Name', validators=[DataRequired(), Length(min=5, max=40)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = StringField('Phone', validators=[DataRequired()])
     submit = SubmitField('Update Contact')
